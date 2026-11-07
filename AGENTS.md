@@ -2,7 +2,7 @@
 
 Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it. No code, build, test suite, linter, CI, or git remote. The only meaningful verification is cross-reference consistency in the markdown.
 
-**Canonical file:** `Green Paper v2.1 — Substrate-Grounded Revision.md` (526 lines, 14 sections, Appendices A–E). "The green paper" always means this file. Its filename says v2.1; the `**Version:**` header says v2.2. Read it whole before editing.
+**Canonical file:** `paper/green-paper-v2.2.md` (526 lines, 14 sections, Appendices A–E). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump. Read it whole before editing.
 
 ## Guide Index
 

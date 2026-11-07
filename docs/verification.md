@@ -7,7 +7,7 @@ Part of the [repository guidelines](../AGENTS.md). The only meaningful verificat
 No build step exists. Verification is four greps against the canonical paper:
 
 ```sh
-P="Green Paper v2.1 — Substrate-Grounded Revision.md"
+P="paper/green-paper-v2.2.md"
 grep -nE '^#{2,3} ' "$P"                     # section map (## and ###); §9.x are table rows
 grep -c '^| 9\.' "$P"                        # pathologies: 13
 grep -c '^\*\*Q[0-9]' "$P"                   # questions: 9
