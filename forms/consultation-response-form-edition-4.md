@@ -89,7 +89,7 @@ Answer only what you can answer substantively; blanks are recorded as *no positi
 
 Questions the paper has settled in text are listed in §14's preamble and are not re-asked here: occipital exemption (§5.3), evidence-delta mechanics (§6 R4), claim schema and temporal witnessing (§6), bandit routing as selection principle (§8), consolidation gating (§7.4), identity and lifecycle (§11), interoception schema (§7.3 + Appendix A), guard-vs-falsifier (§9). A response that re-litigates a settled question must first overturn its Appendix C disposition.
 
-Q1 and Q7–Q9 are answerable only after the Epoch 0 census; a response that supplies a measured candidate against Appendix F outranks a preference.
+Q1 and Q7–Q9 are answerable only after the Epoch 0 census; a response that supplies a measured candidate against Appendix F outranks a preference. Where the organism bootstraps on paid dispatch, substitute route measurements — TTFT/TPOT from the endpoint, USD per completed verified task, prompt-cache hit rate — for the census constants, and state the substitution explicitly so the answer is graded against the economics it actually faces.
 
 ### Group I — Thresholds and budgets (Epoch 0 constants)
 
@@ -127,19 +127,19 @@ Q1 and Q7–Q9 are answerable only after the Epoch 0 census; a response that sup
 - Mechanism: ______________
 - Falsifier: ______________
 
-**Q7 — Minimum viable organism (§12).** Given Epoch 0's measured lane curve on 32 threads and the registry's residency footprints, what is the smallest workload-honest funding lattice — frontal pair plus Reader-circuit, or more? Workload evidence, not symmetry, decides.
+**Q7 — Minimum viable organism (§12).** Given Epoch 0's measured lane curve on 32 threads and the registry's residency footprints, what is the smallest workload-honest funding lattice — frontal pair plus Reader-circuit, or more? Workload evidence, not symmetry, decides. If the organism bootstraps on paid dispatch, answer in USD per completed verified task rather than thread share, and say which lattice that budget buys.
 - Position: ______________
 - Mechanism (the measurement that decides): ______________
 - Falsifier: ______________
 
 ### Group IV — Lane economy on this host
 
-**Q8 — The frontal pair on one machine (§5.7, App. D).** Which two registry residents should Driver and Sentinel instantiate on — and at what thread split — such that the pair achieves Rung-1 decorrelation (context slices) without starving the other's velocity? Name only **installed** entries; a watchlist entry enters only after a verified pull (F.6). If you propose a remote substitute for an entry that cannot be pulled, classify it under Law 1 (paid dispatch with an operator record, or benchmark oracle outside the census matrix) and state what it cannot measure.
+**Q8 — The frontal pair on one machine (§5.7, App. D).** Which two registry residents should Driver and Sentinel instantiate on — and at what thread split — such that the pair achieves Rung-1 decorrelation (context slices) without starving the other's velocity? Name only **installed** entries; a watchlist entry enters only after a verified pull (F.6). If the organism bootstraps on paid dispatch instead, answer in the route's terms: which two **backbone families** the pair draws from, at what USD per completed verified task, and how that answer classifies itself under Law 1 (emergency ration with a recorded operator authorization, 9.8) and which of the census axes it cannot measure.
 - Position (same-backbone-with-divergent-slices first, or two-heavyweight): ______________
 - Mechanism (thread split, slice protocol, and the residency rent each lane pays): ______________
 - Falsifier: ______________
 
-**Q9 — Lane discipline under contention (§8).** When two or more residents act concurrently, what lane-switch hysteresis prevents routing thrash from evicting warm KV caches — and at what measured cache-eviction cost does switching lanes become more expensive than waiting?
+**Q9 — Lane discipline under contention (§8).** When two or more residents act concurrently, what lane-switch hysteresis prevents routing thrash from evicting warm KV caches — and at what measured cache-eviction cost does switching lanes become more expensive than waiting? On a paid route with no local lanes, answer for provider-side prompt caching instead: what cache-hit rate must a route switch forfeit before waiting wins?
 - Position: ______________
 - Mechanism (hysteresis rule as a mechanical predicate): ______________
 - Falsifier: ______________

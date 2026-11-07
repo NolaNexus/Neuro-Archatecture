@@ -50,7 +50,7 @@ Read a section, not the file: open with `offset` and `limit` at the line shown.
 | `reviews/v1.2-lumo-peer-audit.md` | 139 | verdict 9 · D1–D7 15 · F1–F7 42 · neuroscience 67 · P1–P2 88 · laws 99 · questions 111 · form audit 119 |
 | `reviews/v1.4-lumo-peer-review.md` | 101 | A 9 (N1–N6 23) · B 45 (M1–M8 51) · C 79 · D 99 |
 | `reviews/v2.2-lumo-peer-review-round-3.md` | 148 | verdict 12 · R1–R5 35 · R6–R13 79 · R14–R19 115 · phase plan 126 |
-| `reviews/v2.3-deepinfra-registry-substitutions.md` | 58 | boundary 8 · D.1 14 · D.2 22 · D.3 31 · unclassified 39 · findings 48 |
+| `reviews/v2.3-deepinfra-route-registry.md` | 94 | route change 8 · criteria 12 · cost model 31 · registry 39 · unfunded tier 62 · falsifiers 74 · constitution 85 |
 | `forms/consultation-response-form-edition-4.md` | 173 | A 11 (A5 split 25) · B 51 · C 86 (Q1–Q9 96–142) · D 149 · E 165 |
 | `forms/consultation-response-form-edition-3.md` | 150 | A 10 · B 36 · C 69 (Q1–Q9 77–123) · D 130 · E 142 |
 | `forms/consultation-response-form-edition-2.md` | 165 | A 9 · B 31 · C 63 · D 148 · E 158 |
