@@ -2,13 +2,13 @@
 
 Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it. No code, build, test suite, linter, CI, or git remote. The only meaningful verification is cross-reference consistency in the markdown.
 
-**Canonical file:** `paper/green-paper-v2.2.md` (526 lines, 14 sections, Appendices A–E). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump.
+**Canonical file:** `paper/green-paper-v2.3.md` (644 lines, 14 sections, Appendices A–H). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump.
 
 ## Context Budget
 
 This file is the whole guide. There is no `docs/` guide set to chase; do not create one.
 
-- **Never read the paper whole by default.** Map it first with `grep -nE '^#{1,3} ' paper/green-paper-v2.2.md`, then read only the sections you touch plus Appendix C. A full read is for a structural rewrite, and you say why before doing it.
+- **Never read the paper whole by default.** Map it first with `grep -nE '^#{1,3} ' paper/green-paper-v2.3.md`, then read only the sections you touch plus Appendix C. A full read is for a structural rewrite, and you say why before doing it.
 - **Never re-read a file already read this session.** Use `offset`/`limit` or `grep -n` for a second look.
 - **Locate with grep, then read narrow.** Do not open a 220-line review to answer one question; read the row or paragraph you need.
 - **Subagents get ranges, not the paper.** Pass section numbers or the exact grep. A subagent told to "read the paper" burns the context you were saving.
@@ -28,11 +28,11 @@ reviews/   completed peer reviews and audits
 
 ## Files
 
-- `paper/green-paper-v2.2.md` — the canonical paper. The version is in the header; the filename is renamed to match on each bump.
+- `paper/green-paper-v2.3.md` — the canonical paper. The version is in the header; the filename is renamed to match on each bump.
 - `paper/archive/green-paper-v1.2.md` — superseded edition; input only.
 - `forms/consultation-response-form-edition-3.md` — current template. Copy it into `reviews/`; never edit it in place.
 - `forms/consultation-response-form-edition-2.md` — historical.
-- `reviews/` — completed reviews and audits from the two prior rounds.
+- `reviews/` — completed reviews and audits from the prior three rounds.
 
 ## Naming
 
@@ -48,12 +48,13 @@ Read a section, not the file: open with `offset` and `limit` at the line shown.
 | `reviews/v1.2-lumo-consultation-response-freeform.md` | 220 | A 10 · B 23 · C 45 (Q1–Q12) · D 196 · E 212 |
 | `reviews/v1.2-lumo-peer-audit.md` | 139 | verdict 9 · D1–D7 15 · F1–F7 42 · neuroscience 67 · P1–P2 88 · laws 99 · questions 111 · form audit 119 |
 | `reviews/v1.4-lumo-peer-review.md` | 101 | A 9 (N1–N6 23) · B 45 (M1–M8 51) · C 79 · D 99 |
+| `reviews/v2.2-lumo-peer-review-round-3.md` | 148 | verdict 12 · R1–R5 35 · R6–R13 79 · R14–R19 115 · phase plan 126 |
 | `forms/consultation-response-form-edition-3.md` | 150 | A 10 · B 36 · C 69 (Q1–Q9 77–123) · D 130 · E 142 |
 | `forms/consultation-response-form-edition-2.md` | 165 | A 9 · B 31 · C 63 · D 148 · E 158 |
 
 ## Architecture Overview
 
-Five laws (Metabolism, Sparse Activation, Decorrelated Errors, Earned Existence, Substrate Silence) elaborate into eight divisions, a cerebrum of four stages with two witnesses each (eight roles), the Ledger/Chronicle signal split, an endocrine tier, a bandit-trained macro router, and a mechanically-computable dispute interrupt. §9 inventories thirteen pathologies; §13 pins nine inherited lesions as the golden set.
+Five laws (Metabolism, Sparse Activation, Decorrelated Errors, Earned Existence, Substrate Silence) elaborate into eight divisions, a cerebrum of four stages with two witnesses each (eight roles), the Ledger/Chronicle signal split, an endocrine tier, a bandit-trained macro router, and a dispute interrupt that binds on mechanical fields. §9 inventories thirteen pathologies; §13 pins nine inherited lesions as the golden set.
 
 ## Invariants
 
@@ -65,30 +66,30 @@ Pathologies are 9.1–9.13 inside §9; §10 is "Plasticity: The Myelination Ladd
 
 ### Questions
 
-v2.2 has Q1–Q9 in §14; the Edition 3 form asks the same. §14's preamble says which old questions are now settled in text — use it instead of inventing answers.
+v2.3 has Q1–Q9 in §14; the Edition 3 form asks the same. §14's preamble says which old questions are now settled in text — use it instead of inventing answers.
 
 ### Finding IDs
 
-`D#`/`F#`/`P#` come from the v1.2 audit, `N#`/`M#`/`E#` from the v1.4 review. All are dispositioned in Appendix C and appear only in the appendices, never in body sections §1–§14.
+`D#`/`F#`/`P#` come from the v1.2 audit, `N#`/`M#`/`E#` from the v1.4 review, and `R#` from the v2.2 round-3 review. All are dispositioned in Appendix C and appear only in the appendices, never in body sections §1–§14.
 
 ### Terminology
 
-Terminology is specification: don't rename the organs, the eight roles (Driver, Sentinel, Spotlight, Cartographer, Chronicle, Canon, Reader, Surveyor), the five Laws, or the Ledger/Chronicle split, and don't swap their mandated behaviors. The Cerebrum thinks; the Thalamus gates without judging; the locus-coeruleus reflex takes only mechanically-computable inputs.
+Terminology is specification: don't rename the organs, the eight roles (Driver, Sentinel, Spotlight, Cartographer, Chronicle, Canon, Reader, Surveyor), the five Laws, or the Ledger/Chronicle split, and don't swap their mandated behaviors. The Cerebrum thinks; the Thalamus gates without judging; the locus-coeruleus reflex binds only on mechanical fields, with learned salience advisory.
 
 ### Pinned Values
 
-Appendix A constants and §13's nine-lesion golden set are pinned per epoch. Appendix D is a living registry — keep its verified vs. "to be measured at Epoch 0" distinction. Appendix E is living too — keep its Faithful / Approximate / Missing (provisional) verdict distinction.
+Appendix A constants and §13's nine-lesion golden set are pinned per epoch. Appendix D is a living registry — keep its verified vs. "to be measured at Epoch 0" distinction. Appendix E is living too — keep its Faithful / Approximate / Missing (provisional) verdict distinction. Appendix F is the census protocol, Appendix G the fixture specification, and Appendix H the falsifier register: a falsifier is powered only with a statistic, data source, decision rule, and power target.
 
 ### Biological Deviations
 
-Deviations belong in Appendix B. Substrate gaps found in OpenCode go there as well (B11–B16); don't paper over them in body text.
+Deviations belong in Appendix B. Substrate gaps found in OpenCode go there as well (B11–B20); don't paper over them in body text.
 
 ## Verification
 
 The only meaningful verification is cross-reference consistency; don't hunt for a test suite. Four greps against the canonical paper:
 
 ```sh
-P="paper/green-paper-v2.2.md"
+P="paper/green-paper-v2.3.md"
 grep -nE '^#{2,3} ' "$P"                     # section map (## and ###); §9.x are table rows
 grep -c '^| 9\.' "$P"                        # pathologies: 13
 grep -c '^\*\*Q[0-9]' "$P"                   # questions: 9
@@ -97,7 +98,7 @@ grep -oE '§[0-9]+(\.[0-9]+)?' "$P" | sort -u # every ref must be in the map or 
 
 Counts must agree across the Abstract, §4, §5.3, §9, and §14: eight divisions, eight roles, thirteen pathologies, nine questions.
 
-The Edition 3 form's A5 checklist asserts the same v2.2 state (9.1–9.13 numbering, Q1–Q9, the §5.2 ninth-and-tenth fix, Appendix A constants, §5.4 comprehension lenses, the N→V rename, §8/Q3 agreement, Appendix E plus B11–B16). All eight should be **Confirmed**; a **Confirmed** on a defect-shaped item means the copy predates the cleanup.
+The Edition 3 form's A5 checklist asserts the v2.2 state that v2.3 preserves as an erratum (9.1–9.13 numbering, Q1–Q9, the §5.2 ninth-and-tenth fix, Appendix A constants, §5.4 comprehension lenses, the N→V rename, §8/Q3 agreement, Appendix E plus B11–B16). All eight should be **Confirmed**; a **Confirmed** on a defect-shaped item means the copy predates the cleanup. Edition 3 remains the current form; a future Edition 4 should add the v2.3 items (Law 5 by provenance, Appendices F–H, the bandwidth axis, B17–B20).
 
 The same gates run automatically after any edit to `paper/green-paper-v*.md` through `.factory/hooks.json`, and `/verify` runs them on demand.
 
@@ -109,9 +110,9 @@ Copy `forms/consultation-response-form-edition-3.md` into `reviews/` and state t
 
 ### Revising the Paper
 
-- Bump the `**Version:**` header (v2.2 → v2.3 …), rename the file to match (`git mv paper/green-paper-v2.2.md paper/green-paper-v2.3.md`), and update the paths here in `AGENTS.md`. Add an Appendix C row; no finding is silently dropped.
+- Bump the `**Version:**` header (v2.3 → v2.4 …), rename the file to match (`git mv paper/green-paper-v2.3.md paper/green-paper-v2.4.md`), and update the paths here in `AGENTS.md`. Add an Appendix C row; no finding is silently dropped.
 - Registry or lane-economy changes: update Appendix D and the affected §5.7 / Q8–Q9 text together.
-- Substrate-mapping changes: update Appendix E and the affected Appendix B rows (B11–B16) together.
+- Substrate-mapping changes: update Appendix E and the affected Appendix B rows (B11–B20) together.
 
 ## Style and Commits
 
