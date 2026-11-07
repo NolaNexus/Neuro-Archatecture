@@ -5,6 +5,6 @@ Green Paper v2.3 — a proposal to reconstruct a Terminal AI Development Environ
 **Status:** GREEN PAPER — FOR CONSULTATION. Nothing herein is binding, implemented, or settled.
 
 - Read the paper: [paper/green-paper-v2.3.md](paper/green-paper-v2.3.md)
-- Respond using the current form: [forms/consultation-response-form-edition-3.md](forms/consultation-response-form-edition-3.md), saved into `reviews/`
+- Respond using the current form: [forms/consultation-response-form-edition-4.md](forms/consultation-response-form-edition-4.md), saved into `reviews/`
 - Prior reviews and audits: [reviews/](reviews/)
 - Contributor and agent rules (single guide): [AGENTS.md](AGENTS.md)

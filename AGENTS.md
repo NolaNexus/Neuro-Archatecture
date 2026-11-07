@@ -13,7 +13,7 @@ This file is the whole guide. There is no `docs/` guide set to chase; do not cre
 - **Locate with grep, then read narrow.** Do not open a 220-line review to answer one question; read the row or paragraph you need.
 - **Subagents get ranges, not the paper.** Pass section numbers or the exact grep. A subagent told to "read the paper" burns the context you were saving.
 - **Never paste long file contents** into replies, subagent prompts, or commit messages. Pass paths and line ranges.
-- **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 3.
+- **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, `forms/consultation-response-form-edition-3.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 4.
 - **Subagents return verdicts, not passages.** Ask for the finding, the line number, and the minimal correction. A subagent that quotes the paper back to you has doubled your context, not halved it.
 - **One revision per session.** After a version bump, start a fresh session; the old one only carries stale text.
 - **Compact when the transcript costs more than it carries.** `/context` shows the split; `/compress` summarizes into a fresh session. The 120k limit is the automatic floor, not a target.
@@ -30,7 +30,8 @@ reviews/   completed peer reviews and audits
 
 - `paper/green-paper-v2.3.md` — the canonical paper. The version is in the header; the filename is renamed to match on each bump.
 - `paper/archive/green-paper-v1.2.md` — superseded edition; input only.
-- `forms/consultation-response-form-edition-3.md` — current template. Copy it into `reviews/`; never edit it in place.
+- `forms/consultation-response-form-edition-4.md` — current template, grades v2.3. Copy it into `reviews/`; never edit it in place.
+- `forms/consultation-response-form-edition-3.md` — historical; grades v2.2 and asserts the v2.2 state in A5.
 - `forms/consultation-response-form-edition-2.md` — historical.
 - `reviews/` — completed reviews and audits from the prior three rounds.
 
@@ -49,6 +50,8 @@ Read a section, not the file: open with `offset` and `limit` at the line shown.
 | `reviews/v1.2-lumo-peer-audit.md` | 139 | verdict 9 · D1–D7 15 · F1–F7 42 · neuroscience 67 · P1–P2 88 · laws 99 · questions 111 · form audit 119 |
 | `reviews/v1.4-lumo-peer-review.md` | 101 | A 9 (N1–N6 23) · B 45 (M1–M8 51) · C 79 · D 99 |
 | `reviews/v2.2-lumo-peer-review-round-3.md` | 148 | verdict 12 · R1–R5 35 · R6–R13 79 · R14–R19 115 · phase plan 126 |
+| `reviews/v2.3-deepinfra-registry-substitutions.md` | 58 | boundary 8 · D.1 14 · D.2 22 · D.3 31 · unclassified 39 · findings 48 |
+| `forms/consultation-response-form-edition-4.md` | 173 | A 11 (A5 split 25) · B 51 · C 86 (Q1–Q9 96–142) · D 149 · E 165 |
 | `forms/consultation-response-form-edition-3.md` | 150 | A 10 · B 36 · C 69 (Q1–Q9 77–123) · D 130 · E 142 |
 | `forms/consultation-response-form-edition-2.md` | 165 | A 9 · B 31 · C 63 · D 148 · E 158 |
 
@@ -66,7 +69,7 @@ Pathologies are 9.1–9.13 inside §9; §10 is "Plasticity: The Myelination Ladd
 
 ### Questions
 
-v2.3 has Q1–Q9 in §14; the Edition 3 form asks the same. §14's preamble says which old questions are now settled in text — use it instead of inventing answers.
+v2.3 has Q1–Q9 in §14; the Edition 4 form asks the same, with Q1, Q3, and Q8 reworded where v2.3 changed their inputs. §14's preamble says which old questions are now settled in text — use it instead of inventing answers.
 
 ### Finding IDs
 
@@ -98,7 +101,7 @@ grep -oE '§[0-9]+(\.[0-9]+)?' "$P" | sort -u # every ref must be in the map or 
 
 Counts must agree across the Abstract, §4, §5.3, §9, and §14: eight divisions, eight roles, thirteen pathologies, nine questions.
 
-The Edition 3 form's A5 checklist asserts the v2.2 state that v2.3 preserves as an erratum (9.1–9.13 numbering, Q1–Q9, the §5.2 ninth-and-tenth fix, Appendix A constants, §5.4 comprehension lenses, the N→V rename, §8/Q3 agreement, Appendix E plus B11–B16). All eight should be **Confirmed**; a **Confirmed** on a defect-shaped item means the copy predates the cleanup. Edition 3 remains the current form; a future Edition 4 should add the v2.3 items (Law 5 by provenance, Appendices F–H, the bandwidth axis, B17–B20).
+The Edition 4 form's A5 checklist is split in two. The carry-over half asserts the v2.2 state v2.3 preserves (9.1–9.13 numbering, Q1–Q9, the §5.2 ninth-and-tenth fix, Appendix A constants, §5.4 comprehension lenses, the N→V rename, §8/Q3 agreement, Appendix E plus B11–B20); the v2.3 half asserts the new state (Law 5 by provenance, the three §5.2 tests, error-conditional disagreement and kappa, the pipeline default, the bandwidth axis, version-pinned fixtures with Appendices G–H, B17–B20, and D's installed-versus-watchlist split). Every line should be **Confirmed**; a **Confirmed** on a defect-shaped item means the copy predates the cleanup, and an **Absent** on a v2.3 item means the copy is Edition 3 or older.
 
 The same gates run automatically after any edit to `paper/green-paper-v*.md` through `.factory/hooks.json`, and `/verify` runs them on demand.
 
@@ -106,7 +109,7 @@ The same gates run automatically after any edit to `paper/green-paper-v*.md` thr
 
 ### Consultation Responses
 
-Copy `forms/consultation-response-form-edition-3.md` into `reviews/` and state the paper version in the header. Every response needs a definite **Position**, a **Mechanism** (*how*), and a **Falsifier** that could kill the proposal. No hedges; "no position" is stated explicitly.
+Copy `forms/consultation-response-form-edition-4.md` into `reviews/` and state the paper version in the header. Every response needs a definite **Position**, a **Mechanism** (*how*), and a **Falsifier** that could kill the proposal. No hedges; "no position" is stated explicitly.
 
 ### Revising the Paper
 
