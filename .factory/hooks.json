@@ -1,4 +1,16 @@
 {
+  "PreToolUse": [
+    {
+      "matcher": "Read",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 /home/nola/Neuro-Archatecture/.factory/hooks/guard_paper_read.py",
+          "timeout": 10
+        }
+      ]
+    }
+  ],
   "PostToolUse": [
     {
       "matcher": "Create|Edit|ApplyPatch",

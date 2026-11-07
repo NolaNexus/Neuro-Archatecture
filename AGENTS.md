@@ -16,6 +16,7 @@ This file is the whole guide. There is no `docs/` guide set to chase; do not cre
 - **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 3.
 - **Subagents return verdicts, not passages.** Ask for the finding, the line number, and the minimal correction. A subagent that quotes the paper back to you has doubled your context, not halved it.
 - **One revision per session.** After a version bump, start a fresh session; the old one only carries stale text.
+- **Compact when the transcript costs more than it carries.** `/context` shows the split; `/compress` summarizes into a fresh session. The 120k limit is the automatic floor, not a target.
 
 ## Layout
 
@@ -152,9 +153,18 @@ Personal droids, `~/.factory/droids/`: `deep-analyst` (heavy) and `fast-scout` (
 
 `~/.factory/droids/` also holds five ML droids used by the `~/LMp2LMa` journey workspace: `ml-experimenter`, `ml-evaluator`, `data-auditor`, `notebook-engineer`, and `ml-code-reviewer`. Their shared skills live in `~/.factory/skills/`: `pytorch-training`, `mlflow-tracking`, `sklearn-pipelines`, `data-validation`, `jupyter-notebook`, and `anaconda-intelligence`. The ML workspace's `AGENTS.md` documents when to use them; they are not part of paper work.
 
-### Hook
+### Hooks
 
-`.factory/hooks.json` runs `.factory/hooks/check_paper.py` after `Create`, `Edit`, or `ApplyPatch`. The script ignores every file except `paper/green-paper-v*.md`; on the paper it re-runs the count gates and exits `2` with the mismatch, which Droid feeds back as corrective feedback.
+`.factory/hooks.json` runs two guards:
+
+- `guard_paper_read.py` before `Read`: an un-ranged read of `paper/green-paper-v*.md` exits `2` and returns the map-first instruction. A read with `offset`, or with `limit` ≥ 400, passes; that is the opt-in for a structural rewrite.
+- `check_paper.py` after `Create`, `Edit`, or `ApplyPatch`: on the paper it re-runs the count gates and exits `2` with the mismatch.
+
+Droid snapshots hooks at startup, so a new hook takes effect in the next session.
+
+### Compaction
+
+`.factory/settings.json` sets `compactionTokenLimit` to 120,000. BYOK models default to 250,000 even with a million-token window, which lets a session run well past the point where re-sending the transcript costs more than the detail is worth. `/context` shows the breakdown, `/compress [prompt]` summarizes now and continues in a new session, and `/clear` discards. Raise the limit if a revision legitimately needs more working text.
 
 ### Command
 
