@@ -13,6 +13,8 @@ This file is the whole guide. There is no `docs/` guide set to chase; do not cre
 - **Locate with grep, then read narrow.** Do not open a 220-line review to answer one question; read the row or paragraph you need.
 - **Subagents get ranges, not the paper.** Pass section numbers or the exact grep. A subagent told to "read the paper" burns the context you were saving.
 - **Never paste long file contents** into replies, subagent prompts, or commit messages. Pass paths and line ranges.
+- **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 3.
+- **Subagents return verdicts, not passages.** Ask for the finding, the line number, and the minimal correction. A subagent that quotes the paper back to you has doubled your context, not halved it.
 - **One revision per session.** After a version bump, start a fresh session; the old one only carries stale text.
 
 ## Layout
