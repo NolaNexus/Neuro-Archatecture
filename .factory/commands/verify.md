@@ -3,7 +3,7 @@ description: Run the Green Paper cross-reference gates and report the counts
 argument-hint:
 ---
 
-Run the four verification commands from `docs/verification.md` against `paper/green-paper-v2.2.md` and report:
+Run the four verification commands from `AGENTS.md` (Verification) against `paper/green-paper-v2.2.md` and report:
 
 1. Pathology rows (expected 13).
 2. Questions (expected 9).

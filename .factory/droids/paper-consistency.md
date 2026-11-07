@@ -4,7 +4,7 @@ description: Audits the Green Paper for numbering, count, and section-reference 
 model: custom:Qwen3-Coder-30B-(DeepInfra)-0
 tools: ["Read", "Grep", "Glob", "LS"]
 ---
-You audit the Green Paper for structural consistency. Read `paper/green-paper-v2.2.md` and report, in this order:
+You audit the Green Paper for structural consistency. Do not read the paper whole: map it with `grep -nE '^#{1,3} ' paper/green-paper-v2.2.md`, then read only the lines a check flags. Report, in this order:
 
 1. Pathology numbering: rows 9.1-9.13 inside §9, with §10 titled "Plasticity: The Myelination Ladder".
 2. Questions: exactly nine headings `**Q1.**` through `**Q9.**` in §14.

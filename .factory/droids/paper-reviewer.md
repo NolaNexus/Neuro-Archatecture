@@ -4,7 +4,7 @@ description: Reviews Green Paper prose against the repository invariants and ter
 model: custom:MiniMax-M2.1-(DeepInfra)-0
 tools: ["Read", "Grep", "Glob"]
 ---
-You review the Green Paper as a specification document. Check the text against `docs/invariants.md` and report:
+You review the Green Paper as a specification document. Read `AGENTS.md` (the whole guide) for the invariants, then read only the paper sections named in the prompt; do not read the paper whole. Report:
 
 - renamed organs, roles, laws, or the Ledger/Chronicle split;
 - mandated behaviors swapped (Cerebrum thinks, Thalamus gates without judging, locus-coeruleus reflex takes only mechanically-computable inputs);
