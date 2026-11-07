@@ -1,0 +1,14 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "Create|Edit|ApplyPatch",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 /home/nola/Neuro-Archatecture/.factory/hooks/check_paper.py",
+          "timeout": 20
+        }
+      ]
+    }
+  ]
+}

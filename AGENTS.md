@@ -13,6 +13,7 @@ Prose-only research workspace: a Green Paper proposing a neuro-architectural sub
 | [docs/style-and-commits.md](docs/style-and-commits.md) | markdown conventions, naming, commit style | writing or committing |
 | [docs/invariants.md](docs/invariants.md) | numbering, questions, finding IDs, terminology, pinned values | editing the paper |
 | [docs/workflow.md](docs/workflow.md) | consultation responses, version bumps, registry updates | revising or responding |
+| [docs/droid-environment.md](docs/droid-environment.md) | DeepInfra models, droid routing, hook, /verify | using subagents |
 
 ## Before You Edit
 
