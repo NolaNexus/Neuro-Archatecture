@@ -1,32 +1,16 @@
 # Repository Guidelines
 
-Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it. No code, build, test suite, linter, CI, or git remote. The only meaningful verification is cross-reference consistency in the markdown.
+Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it; there is no code, build, test suite, linter, CI, or git remote, and the only meaningful verification is cross-reference consistency in the markdown.
 
-**Canonical file:** `paper/green-paper-v2.3.md` (644 lines, 14 sections, Appendices A–H). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump.
+**Canonical file:** `paper/green-paper-v2.3.md` (646 lines, 14 sections, Appendices A–H). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump.
 
-## Context Budget
-
-This file is the whole guide. There is no `docs/` guide set to chase; do not create one.
-
-- **Never read the paper whole by default.** Map it first with `grep -nE '^#{1,3} ' paper/green-paper-v2.3.md`, then read only the sections you touch plus Appendix C. A full read is for a structural rewrite, and you say why before doing it.
-- **Never re-read a file already read this session.** Use `offset`/`limit` or `grep -n` for a second look.
-- **Locate with grep, then read narrow.** Do not open a 220-line review to answer one question; read the row or paragraph you need.
-- **Subagents get ranges, not the paper.** Pass section numbers or the exact grep. A subagent told to "read the paper" burns the context you were saving.
-- **Never paste long file contents** into replies, subagent prompts, or commit messages. Pass paths and line ranges.
-- **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, `forms/consultation-response-form-edition-3.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 4.
-- **Subagents return verdicts, not passages.** Ask for the finding, the line number, and the minimal correction. A subagent that quotes the paper back to you has doubled your context, not halved it.
-- **One revision per session.** After a version bump, start a fresh session; the old one only carries stale text.
-- **Compact when the transcript costs more than it carries.** `/context` shows the split; `/compress` summarizes into a fresh session. The 120k limit is the automatic floor, not a target.
-
-## Layout
+## Project Structure & Module Organization
 
 ```
 paper/     the Green Paper, current and archived
 forms/     consultation response forms
 reviews/   completed peer reviews and audits
 ```
-
-## Files
 
 - `paper/green-paper-v2.3.md` — the canonical paper. The version is in the header; the filename is renamed to match on each bump.
 - `paper/archive/green-paper-v1.2.md` — superseded edition; input only.
@@ -35,11 +19,13 @@ reviews/   completed peer reviews and audits
 - `forms/consultation-response-form-edition-2.md` — historical.
 - `reviews/` — completed reviews and audits from the prior three rounds.
 
-## Naming
+## Coding Style & Naming Conventions
 
 Filenames carry the paper version, the reviewer, and the document kind, in that order, lowercase and hyphenated: `v1.2-lumo-peer-audit.md`. The paper follows `green-paper-v<version>.md` in both `paper/` and `paper/archive/`. Trust the header when the two disagree, and fix the filename rather than recording the mismatch.
 
-## Review and Form Index
+Markdown only: ATX headings, `§` for section references, tables for enumerations. Keep revision-memo voice out of the body ("added in this version", "per finding N#"); provenance belongs in Appendix C. Filenames lie; headers don't.
+
+## File Index
 
 Read a section, not the file: open with `offset` and `limit` at the line shown.
 
@@ -51,13 +37,10 @@ Read a section, not the file: open with `offset` and `limit` at the line shown.
 | `reviews/v1.4-lumo-peer-review.md` | 101 | A 9 (N1–N6 23) · B 45 (M1–M8 51) · C 79 · D 99 |
 | `reviews/v2.2-lumo-peer-review-round-3.md` | 148 | verdict 12 · R1–R5 35 · R6–R13 79 · R14–R19 115 · phase plan 126 |
 | `reviews/v2.3-deepinfra-route-registry.md` | 94 | route change 8 · criteria 12 · cost model 31 · registry 39 · unfunded tier 62 · falsifiers 74 · constitution 85 |
+| `reviews/v2.3-droid-route-registry-audit.md` | 121 | verdict 9 · slots 21 · findings 40 · revised registry 92 · required before v2.4 109 |
 | `forms/consultation-response-form-edition-4.md` | 173 | A 11 (A5 split 25) · B 51 · C 86 (Q1–Q9 96–142) · D 149 · E 165 |
 | `forms/consultation-response-form-edition-3.md` | 150 | A 10 · B 36 · C 69 (Q1–Q9 77–123) · D 130 · E 142 |
 | `forms/consultation-response-form-edition-2.md` | 165 | A 9 · B 31 · C 63 · D 148 · E 158 |
-
-## Architecture Overview
-
-Five laws (Metabolism, Sparse Activation, Decorrelated Errors, Earned Existence, Substrate Silence) elaborate into eight divisions, a cerebrum of four stages with two witnesses each (eight roles), the Ledger/Chronicle signal split, an endocrine tier, a bandit-trained macro router, and a dispute interrupt that binds on mechanical fields. §9 inventories thirteen pathologies; §13 pins nine inherited lesions as the golden set.
 
 ## Invariants
 
@@ -87,7 +70,11 @@ Appendix A constants and §13's nine-lesion golden set are pinned per epoch. App
 
 Deviations belong in Appendix B. Substrate gaps found in OpenCode go there as well (B11–B20); don't paper over them in body text.
 
-## Verification
+## Architecture Overview
+
+Five laws (Metabolism, Sparse Activation, Decorrelated Errors, Earned Existence, Substrate Silence) elaborate into eight divisions, a cerebrum of four stages with two witnesses each (eight roles), the Ledger/Chronicle signal split, an endocrine tier, a bandit-trained macro router, and a dispute interrupt that binds on mechanical fields. §9 inventories thirteen pathologies; §13 pins nine inherited lesions as the golden set.
+
+## Build, Test, and Development Commands
 
 The only meaningful verification is cross-reference consistency; don't hunt for a test suite. Four greps against the canonical paper:
 
@@ -105,7 +92,14 @@ The Edition 4 form's A5 checklist is split in two. The carry-over half asserts t
 
 The same gates run automatically after any edit to `paper/green-paper-v*.md` through `.factory/hooks.json`, and `/verify` runs them on demand.
 
-## Workflow
+## Testing Guidelines
+
+- Framework: none. The four greps above are the suite; a red gate means the document stopped being the same document.
+- Test naming: not applicable. Each gate is named for the count it asserts: section map, pathologies, questions, unresolved refs.
+- Run with the four greps, or `/verify` on demand.
+- Coverage rule: every `§` reference resolves to a section heading or a 9.x table row, and the four counts agree across the Abstract, §4, §5.3, §9, and §14.
+
+## Common Workflows
 
 ### Consultation Responses
 
@@ -117,15 +111,35 @@ Copy `forms/consultation-response-form-edition-4.md` into `reviews/` and state t
 - Registry or lane-economy changes: update Appendix D and the affected §5.7 / Q8–Q9 text together.
 - Substrate-mapping changes: update Appendix E and the affected Appendix B rows (B11–B20) together.
 
-## Style and Commits
+## Commit & Pull Request Guidelines
 
-Markdown only: ATX headings, `§` for section references, tables for enumerations. Keep revision-memo voice out of the body ("added in this version", "per finding N#"); provenance belongs in Appendix C. Filenames lie; headers don't.
+- Commit style: terse. History is `init commit for Neuro-Archatecture`, then `v2`: short subject, no body.
+- Trailers: none.
+- Branch: `master`. There is no remote, so never push.
+- Check `git status` first, since paper edits are usually uncommitted.
+- Pull requests: none. There is no pull-request workflow; changes land as local commits.
 
-History is terse — `init commit for Neuro-Archatecture`, then `v2`: short subject, no body, no trailers. Work on `master`; there is no remote, so never push. Check `git status` first, since paper edits are usually uncommitted. There is no pull-request workflow; changes land as local commits.
+## Security & Configuration Tips
 
-## Droid Environment
+- The DeepInfra key lives only in the `0600` settings file and a `0600` local copy at `~/.factory/deepinfra_key.json`; neither is in the repository, and neither is ever committed.
+
+## Agent-Specific Instructions
 
 The repository is prose; the only executable code is the hook in `.factory/hooks/`.
+
+### Context Budget
+
+This file is the whole guide. `.factory/templates/agents-template.md` is a blank skeleton, not a second guide: nothing in it is read to do paper work, and no `docs/` guide set should be created to chase.
+
+- **Never read the paper whole by default.** Map it first with `grep -nE '^#{1,3} ' paper/green-paper-v2.3.md`, then read only the sections you touch plus Appendix C. A full read is for a structural rewrite, and you say why before doing it.
+- **Never re-read a file already read this session.** Use `offset`/`limit` or `grep -n` for a second look.
+- **Locate with grep, then read narrow.** Do not open a 220-line review to answer one question; read the row or paragraph you need.
+- **Subagents get ranges, not the paper.** Pass section numbers or the exact grep. A subagent told to "read the paper" burns the context you were saving.
+- **Never paste long file contents** into replies, subagent prompts, or commit messages. Pass paths and line ranges.
+- **Historical files are input only.** `paper/archive/`, `forms/consultation-response-form-edition-2.md`, `forms/consultation-response-form-edition-3.md`, and the v1.2 reviews load only when a task names them. The current form is Edition 4.
+- **Subagents return verdicts, not passages.** Ask for the finding, the line number, and the minimal correction. A subagent that quotes the paper back to you has doubled your context, not halved it.
+- **One revision per session.** After a version bump, start a fresh session; the old one only carries stale text.
+- **Compact when the transcript costs more than it carries.** `/context` shows the split; `/compress` summarizes into a fresh session. The 120k limit is the automatic floor, not a target.
 
 ### Models (DeepInfra BYOK)
 
@@ -134,13 +148,36 @@ Configured in `~/.factory/settings.json` under `customModels`. Droid registers e
 | Role | Model | ID | Context |
 |---|---|---|---|
 | Session default | DeepSeek V4.1 Flash | `custom:DeepSeek-V4.1-Flash-(DeepInfra)-0` | 1,048,576 |
-| Light subagents | Qwen3 Coder 30B | `custom:Qwen3-Coder-30B-(DeepInfra)-0` | 262,144 |
-| Medium subagents | MiniMax M2.1 | `custom:MiniMax-M2.1-(DeepInfra)-0` | 196,608 |
+| Light subagents | gpt-oss-20b | `custom:gpt-oss-20b-(DeepInfra)-0` | 131,072 |
+| Medium subagents | Nemotron-3-Super-120B-A12B | `custom:Nemotron-3-Super-120B-A12B-(DeepInfra)-0` | 262,144 |
 | Heavy subagents | Qwen3.8 Max | `custom:Qwen3.8-Max-(DeepInfra)-0` | 256,000 |
 
 Base URL is `https://api.deepinfra.com/v1/openai`. The key lives only in the `0600` settings file and a `0600` local copy at `~/.factory/deepinfra_key.json`; neither is in the repository, and neither is ever committed.
 
+Tiers are chosen on price at the role's profile, context, and tool reliability. Architecture is not a criterion: the MoE lean in §5.7 is a CPU-host constraint on active parameters per token, and a route does not inherit it (audit A6). Dense and MoE routes compete on the same numbers.
+
+`Qwen/Qwen3-Coder-30B-A3B-Instruct` and `MiniMaxAI/MiniMax-M2.1` were verified absent from the live catalog on 2026-11-07 and retired. Light is now `gpt-oss-20b` at $0.0021 per 60k/2k lookup; medium is `Nemotron-3-Super-120B-A12B` at $0.0057 per 60k/3k review, against $0.0201 for `MiniMaxAI/MiniMax-M3`.
+
 Renaming a model's `displayName` changes its registered ID and breaks every reference below. Change both together.
+
+### Route registry (the eight roles)
+
+Funded from `reviews/v2.3-droid-route-registry-audit.md` §4. Unit is the 150k in / 15k out mix; the last column is the profile the role actually runs — author 60k/8k, read 150k/1.5k, poll = read at 70% cache hit.
+
+| Role | Model | ID | Served ctx | Unit | Priced on |
+|---|---|---|---|---|---|
+| Driver | gpt-oss-120b | `custom:gpt-oss-120b-(DeepInfra)-0` | 131,072 | 0.0081 | author 0.0036 |
+| Sentinel | Nemotron-3.5-Lightning | `custom:Nemotron-3.5-Lightning-(DeepInfra)-0` | 262,144 (1M documented) | 0.0114 | author 0.0049 |
+| Spotlight | Qwen3.5-9B | `custom:Qwen3.5-9B-(DeepInfra)-0` | 262,144 | 0.0172 | author 0.0072 |
+| Cartographer | gemma-4-26B-A4B-it | `custom:gemma-4-26B-A4B-it-(DeepInfra)-0` | 262,144 | 0.0156 | poll 0.0110, no cache price |
+| Chronicle | DeepSeek-V4-Flash-0731 | `custom:DeepSeek-V4-Flash-0731-(DeepInfra)-0` | 1,048,576 | 0.0117 | poll 0.0045 |
+| Canon | Qwen3.5-9B | `custom:Qwen3.5-9B-(DeepInfra)-0` | 262,144 | 0.0172 | author 0.0072 |
+| Reader | Seed-2.0-mini | `custom:Seed-2.0-mini-(DeepInfra)-0` | 256,000 | 0.0210 | read 0.0156 |
+| Surveyor | Llama-3.1-8B-Instruct-Turbo | `custom:Llama-3.1-8B-Instruct-Turbo-(DeepInfra)-0` | 131,072 | 0.0036 | read 0.0031 |
+
+Organism task $0.1059, with one 1M resident (Chronicle) and one 1M route not funded. Fallbacks: `custom:gemma-4-31B-it-turbo-(DeepInfra)-0` for the Cartographer, the session default for every other route. `inclusionAI/Ling-3.0-flash` is listed at 131K but returns a serving error as of 2026-11-07; do not bind it.
+
+The premium tier (`Qwen3.8-Max`, `Kimi-K3`, `claude-opus-5`) is a benchmark oracle, not a lane. Its 18×/37×/64× bar is unmeasured pending the golden set.
 
 ### Droids
 
@@ -152,6 +189,21 @@ Project droids, `.factory/droids/`:
 | `paper-reviewer` | medium | prose against the invariants |
 | `consultation-grader` | medium | Position / Mechanism / Falsifier |
 | `revision-planner` | heavy | Appendix C rows and affected sections |
+
+The eight cerebrum roles (§5.3) are droids, each on its funded route:
+
+| Droid | Role | Route |
+|---|---|---|
+| `driver` | frontal-left; decomposes, sequences, proposes | gpt-oss-120b |
+| `sentinel` | frontal-right; prices cost and risk, holds the veto | Nemotron-3.5-Lightning |
+| `spotlight` | parietal-left; focal salience on scoped edits | Qwen3.5-9B |
+| `cartographer` | parietal-right; terrain and integrity polls | gemma-4-26B-A4B-it |
+| `chronicle` | temporal-right; episodic witness, annotates the Ledger | DeepSeek-V4-Flash-0731 |
+| `canon` | temporal-left; distilled doctrine | Qwen3.5-9B |
+| `reader` | ventral stream; content decoding | Seed-2.0-mini |
+| `surveyor` | dorsal stream; artifact geometry | Llama-3.1-8B-Instruct-Turbo |
+
+Shared contract across the eight: decorrelation is Rung 1 divergent slices plus Rung 2 lateralized instruction, and backbone divergence is recorded as unverified because the catalog carries no lineage field; each activation emits one ledger row carrying `route_selection_rate`, and the 9.8 confirmation unit is the activation, not the call; every role declares a fallback route; Driver and Surveyor never receive a full unit because their served window is 131,072.
 
 Personal droids, `~/.factory/droids/`: `deep-analyst` (heavy) and `fast-scout` (light).
 
