@@ -40,7 +40,7 @@ No framework. A red gate means the document stopped being the same document.
 
 ## Commit & Pull Request Guidelines
 
-Terse history: `init commit for Neuro-Archatecture`, then short subjects, no body, no trailers. Work on `master`; no remote, so never push. No pull-request workflow.
+Terse history: `init commit for Neuro-Archatecture`, then short subjects, no body, no trailers. Work on `master`, which tracks `origin` at `git@github.com:NolaNexus/Neuro-Archatecture.git` (public); push only when asked, and never rewrite published history. No pull-request workflow.
 
 ## Invariants
 

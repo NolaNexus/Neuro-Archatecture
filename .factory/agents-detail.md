@@ -2,7 +2,7 @@
 
 Entry point: `AGENTS.md`. Read this file before any paper edit, revision, or review.
 
-Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it; there is no code, build, test suite, linter, CI, or git remote, and the only meaningful verification is cross-reference consistency in the markdown.
+Prose-only research workspace: a Green Paper proposing a neuro-architectural substrate for a terminal AI development environment, plus the consultation forms and peer reviews around it; there is no code, build, test suite, linter, or CI, and the only meaningful verification is cross-reference consistency in the markdown.
 
 **Canonical file:** `paper/green-paper-v2.3.md` (646 lines, 14 sections, Appendices A–H). "The green paper" always means this file. The `**Version:**` header is the truth; the filename is renamed to match on each bump.
 
@@ -117,9 +117,9 @@ Copy `forms/consultation-response-form-edition-4.md` into `reviews/` and state t
 
 - Commit style: terse. History is `init commit for Neuro-Archatecture`, then `v2`: short subject, no body.
 - Trailers: none.
-- Branch: `master`. There is no remote, so never push.
+- Branch: `master`, tracking `origin` at `git@github.com:NolaNexus/Neuro-Archatecture.git` (public). Push only when asked; never rewrite published history.
 - Check `git status` first, since paper edits are usually uncommitted.
-- Pull requests: none. There is no pull-request workflow; changes land as local commits.
+- Pull requests: none. There is no pull-request workflow; changes land as commits on `master` and reach the remote only when pushed.
 
 ## Security & Configuration Tips
 
