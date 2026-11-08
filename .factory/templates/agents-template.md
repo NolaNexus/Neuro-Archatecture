@@ -1,6 +1,8 @@
 <!--
 Generic contributor-guide template. Copy to AGENTS.md and replace every {{PLACEHOLDER}}.
 Delete optional blocks you do not use; keep the file to 200-400 words of prose.
+If the rules outgrow that, keep this file as the entry point and move the detail
+to a companion it names, rather than letting the entry point sprawl.
 Guidance for the writer lives in these comments and is not part of the guide.
 -->
 
